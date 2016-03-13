@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Login</title>
+		<title>Index</title>
 		
 		<link rel="stylesheet" type="text/css" href="styles/styles.css">
 	</head>
@@ -17,13 +17,13 @@
 			<!-- Show mainmenu -->
 			<ul>
 				<!-- Show difficulties -->
-				<li><a href="difficulty.php">Play game</a></li>
+				<li><a href="menu/difficulty.php">Play game</a></li>
 				
 				<!-- Show infoUrl -->
-				<li><a href="#info.php">Info</a></li>
+				<li><a href="#menu/info.php">Info</a></li>
 				
 				<!-- Show scoresUrl -->
-				<li><a href="#scores.php">High scores</a></li>
+				<li><a href="#menu/scores.php">High scores</a></li>
 				
 				<!-- Show logoutUrl -->
 				<li><a href="<?php echo $helper->getLogoutUrl($accessToken, $logoutUrl); ?>">Logout</a></li>

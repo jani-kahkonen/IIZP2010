@@ -16,9 +16,9 @@ $permissions = ['email'];
 
 $indexUrl	=	'https://frozen-dawn-78713.herokuapp.com/index.php';
 
-$loginUrl	=	'https://frozen-dawn-78713.herokuapp.com/login.php';
+$loginUrl	=	'https://frozen-dawn-78713.herokuapp.com/menu/login.php';
 
-$logoutUrl	=	'https://frozen-dawn-78713.herokuapp.com/logout.php';
+$logoutUrl	=	'https://frozen-dawn-78713.herokuapp.com/menu/logout.php';
 
 $accessToken =	$_SESSION['facebook_access_token'];
 

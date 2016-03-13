@@ -1,10 +1,11 @@
 <?php
 
-session_start();
+require '../config.php';
+
 session_unset();
 
 $_SESSION['facebook_access_token'] = NULL;
 
-header('Location: ' . 'index.php');
+header('Location: ' . '../index.php');
 
 ?>
