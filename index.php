@@ -23,7 +23,7 @@
 				<li><a href="#menu/info.php">Info</a></li>
 				
 				<!-- Show scoresUrl -->
-				<li><a href="#menu/scores.php">High scores</a></li>
+				<li><a href="menu/scores.php">High scores</a></li>
 				
 				<!-- Show logoutUrl -->
 				<li><a href="<?php echo $helper->getLogoutUrl($accessToken, $logoutUrl); ?>">Logout</a></li>

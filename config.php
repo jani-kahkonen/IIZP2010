@@ -22,4 +22,6 @@ $logoutUrl	=	'https://frozen-dawn-78713.herokuapp.com/menu/logout.php';
 
 $accessToken =	$_SESSION['facebook_access_token'];
 
+$_SESSION['score'] = 0;
+
 ?>
