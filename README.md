@@ -34,3 +34,18 @@ Manual URL: http://www.cs.tut.fi/ohj/dokumenttipohjat/pohjat/kayttoohje/hytt_drk
 		<div id="element-bottom"> Time remaining: </div>
 	</body>
 </html>
+
+
+/*	info.php	*/
+
+<!DOCTYPE HTML>
+<html>
+	<head>
+	</head>
+	
+	<body>
+		<div id="content">
+			// CONTENT HERE
+		</div>
+	</body>
+</html>
