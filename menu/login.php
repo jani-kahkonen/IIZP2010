@@ -5,6 +5,8 @@ require '../config.php';
 try
 {
 	$accessToken = $helper->getAccessToken();
+	
+	$response = $fb->get('/me?fields=id,name', $accessToken);
 }
 catch(Facebook\Exceptions\FacebookResponseException $e)
 {
@@ -20,6 +22,15 @@ if (isset($accessToken))
 	$_SESSION['facebook_access_token'] = (string) $accessToken;
 }
 
+$user = $response->getGraphUser();
+
+$profile = $user->getName();
+
+$profileInfo = explode(" ", $profile);
+$_SESSION['fbFname'] = $profileInfo[0];
+$_SESSION['fbLname'] = $profileInfo[1];
+
+// Redirect to index.php.
 header('Location: ' . $helper->getLoginUrl($indexUrl));
 
 ?>

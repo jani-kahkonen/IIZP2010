@@ -4,7 +4,7 @@ session_start();
 
 $_SESSION['gameMode'] = 1;
 
-require '../scripts/database.php';
+require '../scripts/db-drugs.php';
 
 // Add items to array (difficulty level 1 questions).
 $shufled = array($resultsInfo[0][0], $resultsInfo[0][1], $resultsInfo[1][0], $resultsInfo[1][1]);
@@ -19,16 +19,27 @@ shuffle($shufled);
 	<head>		
 		<link rel="stylesheet" type="text/css" href="../styles/style.css">
 		
+		<style>
+		#progressBar {
+			width: 300px;
+			background-color: skyblue;
+		}
+		</style>
+		
 		<script>
 		
 			// Pass PHP variable to JavaScript variable (Correct order).
 			var align = <?php echo json_encode($resultsInfo); ?>;
+			
+			var progressVar;
 
 			// Check if tiles are correct order.
 			function isAlign(elements)
 			{
 				if ((align[0].indexOf(elements[0].innerHTML.trim()) > -1 && align[0].indexOf(elements[1].innerHTML.trim()) > -1) || (align[1].indexOf(elements[0].innerHTML.trim()) > -1 && align[1].indexOf(elements[1].innerHTML.trim()) > -1))
-				{		
+				{
+					clearTimeout(progressVar);
+					
 					setTimeout(function()
 					{
 						// Redirect to scores.
@@ -40,6 +51,23 @@ shuffle($shufled);
 				else
 				{
 					return false;
+				}
+			}
+			
+			function startCountDown(al)
+			{
+				if(al > 100)
+				{
+					clearTimeout(progressVar);
+					
+					// Redirect to scores.
+					window.location.assign("../../menu/scores.php?lose")
+				}
+				else
+				{
+					progressBar.value = al++;
+					
+					progressVar = setTimeout("startCountDown("+al+")",200);
 				}
 			}
 			
@@ -58,9 +86,11 @@ shuffle($shufled);
 			<div id="element-3" class="rectangle"><?php echo $shufled[3]; ?></div>
 		</div>
 		
-		<div id="element-bottom"> Time remaining: </div>
+		<progress id="progressBar" value="0" max="100"></progress>
 		
 		<script type="text/javascript">
+		
+			var progressBar = document.getElementById('progressBar');
 		
 			// Selects all rectangles.
 			var elements = document.querySelectorAll('div.rectangle');
@@ -70,6 +100,8 @@ shuffle($shufled);
 			{
 				element.addEventListener('mousedown', this.swapElements, false);
 			});
+			
+			startCountDown(0);
 		
 		</script>
 	</body>

@@ -11,6 +11,8 @@
 	<body>
 		<div id="content">
 		
+		<?php $_SESSION['gameMode'] = 0; ?>
+		
 		<!-- After login -->
 		<?php if ($accessToken): ?>
 		
