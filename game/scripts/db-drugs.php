@@ -11,10 +11,18 @@ try
 	// Sql statement what selects Brand, Substance, Form, Classification from table medicine.
 	$statement = 'SELECT brand.Brand, active_substance.Substance, form.Form, classification.Classification FROM medicine
 				INNER JOIN brand on brand.PrimaryKey = medicine.Brand
-				INNER JOIN active_substance on active_substance.PrimaryKey = medicine.ActiveSubstance
+				INNER JOIN active_substance on active_substance.PrimaryKey = medicine.Brand
 				INNER JOIN form on form.PrimaryKey = medicine.Form
 				INNER JOIN classification on classification.PrimaryKey = medicine.Classification
 				ORDER BY RAND() LIMIT 2';
+				
+	// Sql statement what selects Brand, Substance, Form, Classification from table medicine.
+	//$statement = 'SELECT brand.Brand, active_substance.Substance, form.Form, classification.Classification FROM medicine
+	//			INNER JOIN brand on brand.PrimaryKey = medicine.Brand
+	//			INNER JOIN active_substance on active_substance.PrimaryKey = medicine.ActiveSubstance
+	//			INNER JOIN form on form.PrimaryKey = medicine.Form
+	//			INNER JOIN classification on classification.PrimaryKey = medicine.Classification
+	//			ORDER BY RAND() LIMIT 2';
 	
 	// Executes an SQL statement, returning a result set as a PDOStatement object.
 	$stmt = $db->query($statement);
