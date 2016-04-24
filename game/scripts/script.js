@@ -28,10 +28,20 @@ function swapElements()
 		clearTimeout(timeVar);
 		
 		appendElements(selectedElements.pop(), selectedElements.pop());
+		
+		timeVar = setTimeout(function()
+		{
+			for (i = 0; i < elements.length; ++i)
+			{
+				elements[i].classList.remove('selected');
+			}
+		}, 500);
 	}
 	
 	if(isAlign(elements) == true)
 	{
+		clearTimeout(timeVar);
+		
 		timeVar = setTimeout(function()
 		{
 			for (i = 0; i < elements.length; ++i)
@@ -39,15 +49,5 @@ function swapElements()
 				elements[i].classList.add('selected');
 			}
 		}, 0);
-	}
-	else
-	{
-		timeVar = setTimeout(function()
-		{
-			for (i = 0; i < elements.length; ++i)
-			{
-				elements[i].classList.remove('selected');
-			}
-		}, 1000);
 	}
 }

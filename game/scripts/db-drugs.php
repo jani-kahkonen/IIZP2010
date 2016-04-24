@@ -31,18 +31,32 @@ try
 	$results = $stmt->fetchAll(PDO::FETCH_NUM);
 	
 	// Concat info to results. (difficulty level 1)
-	$resultsInfo[0][0] = "Brand: " . $results[0][0];
-	$resultsInfo[0][1] = "Substance: " . $results[0][1];
-	$resultsInfo[1][0] = "Brand: " . $results[1][0];
-	$resultsInfo[1][1] = "Substance: " . $results[1][1];
+	//$resultsInfo[0][0] = "Brand: " . $results[0][0];
+	//$resultsInfo[0][1] = "Substance: " . $results[0][1];
+	//$resultsInfo[1][0] = "Brand: " . $results[1][0];
+	//$resultsInfo[1][1] = "Substance: " . $results[1][1];
 	
 	// Concat info to results. (difficulty level 2)
-	$resultsInfo[0][2] = "Form: " . $results[0][2];
-	$resultsInfo[1][2] = "Form: " . $results[1][2];
+	//$resultsInfo[0][2] = "Form: " . $results[0][2];
+	//$resultsInfo[1][2] = "Form: " . $results[1][2];
 	
 	// Concat info to results. (difficulty level 3)
-	$resultsInfo[0][3] = "Class: " . $results[0][3];
-	$resultsInfo[1][3] = "Class: " . $results[1][3];
+	//$resultsInfo[0][3] = "Class: " . $results[0][3];
+	//$resultsInfo[1][3] = "Class: " . $results[1][3];
+	
+	// Concat info to results. (difficulty level 1)
+	$resultsInfo[0][0] = $results[0][0];
+	$resultsInfo[0][1] = $results[0][1];
+	$resultsInfo[1][0] = $results[1][0];
+	$resultsInfo[1][1] = $results[1][1];
+	
+	// Concat info to results. (difficulty level 2)
+	$resultsInfo[0][2] = $results[0][2];
+	$resultsInfo[1][2] = $results[1][2];
+	
+	// Concat info to results. (difficulty level 3)
+	$resultsInfo[0][3] = $results[0][3];
+	$resultsInfo[1][3] = $results[1][3];
 }
 catch(PDOException $e)
 {

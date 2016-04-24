@@ -14,6 +14,7 @@
 		<!-- After login -->
 		<?php if ($accessToken): ?>
 		
+		<h1>Main menu</h1>
 			<!-- Show mainmenu -->
 			<ul>
 				<!-- Show difficulties -->
@@ -31,6 +32,8 @@
 			
 		<!-- Before login -->
 		<?php else: ?>
+		
+		<h1>Login</h1>
 				
 			<!-- Show loginUrl -->
 			<ul>

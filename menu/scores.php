@@ -2,6 +2,8 @@
 
 session_start();
 
+$score = 0;
+
 if($_SESSION['gameMode'] == 1)
 {
 	if(isset($_GET['lose']))
@@ -14,6 +16,7 @@ if($_SESSION['gameMode'] == 1)
 		
 		echo file_get_contents($url);
 		
+		$score = $_SESSION['score'];
 		$_SESSION['gameMode'] = 0;
 		$_SESSION['score'] = 0;
 	}
@@ -37,15 +40,23 @@ if($_SESSION['gameMode'] == 1)
 		<!-- Show your scores, if gameMode = 1 -->
 		<?php if ($_SESSION['gameMode'] == 1): ?>
 		
-			<h3>Your scores: <?php echo $_SESSION['score']; ?></h3>
+			<h1>Win! your score: <?php echo $_SESSION['score']; ?></h1>
 			
 		<!-- Show high scores, if gameMode = 0 -->
 		<?php else: ?>
 		
-			<h3>High scores:</h3>
+			<?php if(isset($_GET['lose'])): ?>
+		
+				<h1>Lose! your score: <?php echo $score; ?></h1>
+		
+			<?php endif ?>
 			
-			<!-- Show score table TOP 5 -->
-			<?php echo file_get_contents('http://student.labranet.jamk.fi/~H9575/IZP2010/db-scores.php'); ?>
+			<h1>High scores:</h1>
+			
+			<div id="scores">
+				<!-- Show score table TOP 5 -->
+				<?php echo file_get_contents('http://student.labranet.jamk.fi/~H9575/IZP2010/db-scores.php'); ?>
+			</div>
 				
 		<?php endif ?>
 		
@@ -57,7 +68,7 @@ if($_SESSION['gameMode'] == 1)
 			<!-- Show continue, if gameMode = 1 -->
 			<?php if ($_SESSION['gameMode'] == 1): ?>
 			
-				<li><a href="<?php echo $_SERVER['HTTP_REFERER']; ?>">Play next round</a></li>
+				<li><a href="<?php echo $_SERVER['HTTP_REFERER']; ?>">Continue</a></li>
 					
 			<?php endif ?>
 			
